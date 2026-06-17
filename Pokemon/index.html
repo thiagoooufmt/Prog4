@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore a Pokédex oficial da Geração 1! Filtre por tipo e busque pelo nome ou ID.">
+    <title>Pokédex - Geração 1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <header class="banner">
+            <svg class="pokeball-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" fill="#f3f4f6" stroke="#0d0e12" stroke-width="6" />
+                <path d="M5 50h90" stroke="#0d0e12" stroke-width="6" />
+                <path d="M5 50A45 45 0 0 1 95 50" fill="#ff3e3e" />
+                <circle cx="50" cy="50" r="15" fill="#f3f4f6" stroke="#0d0e12" stroke-width="6" />
+                <circle cx="50" cy="50" r="7" fill="#fff" stroke="#0d0e12" stroke-width="2" />
+            </svg>
+
+            <h1 id="app-title">Pokédex</h1>
+            <p>Explore a primeira geração de Pokémon. Pesquise por nome ou ID e filtre por tipo.</p>
+
+            <div class="banner-stats">
+                <div class="banner-stats-item">
+                    Carregados: <span id="stats-total">0</span>
+                </div>
+                <div class="banner-stats-item">
+                    Filtro: <span id="stats-filter">Todos</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="controls-section">
+
+            <div class="search-box">
+                <div class="search-input-wrapper">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="pokemon-search-input" class="search-input"
+                        placeholder="Buscar por nome ou ID... (Ex: pikachu, 25)">
+                </div>
+                <button id="search-submit-btn" class="search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Buscar</span>
+                </button>
+            </div>
+
+            <div class="filter-box">
+                <label for="type-filter-select">Tipo:</label>
+                <select id="type-filter-select" class="filter-select">
+                    <option value="all">Todos os Tipos</option>
+                    <option value="grass">Grass (Grama)</option>
+                    <option value="fire">Fire (Fogo)</option>
+                    <option value="water">Water (Água)</option>
+                    <option value="bug">Bug (Inseto)</option>
+                    <option value="normal">Normal</option>
+                    <option value="poison">Poison (Veneno)</option>
+                    <option value="electric">Electric (Elétrico)</option>
+                    <option value="ground">Ground (Terra)</option>
+                    <option value="fairy">Fairy (Fada)</option>
+                    <option value="fighting">Fighting (Lutador)</option>
+                    <option value="psychic">Psychic (Psíquico)</option>
+                    <option value="rock">Rock (Pedra)</option>
+                    <option value="ghost">Ghost (Fantasma)</option>
+                    <option value="ice">Ice (Gelo)</option>
+                    <option value="dragon">Dragon (Dragão)</option>
+                    <option value="steel">Steel (Aço)</option>
+                    <option value="flying">Flying (Voador)</option>
+                    <option value="dark">Dark (Sombrio)</option>
+                </select>
+            </div>
+
+            <button id="clear-view-btn" class="reset-btn">
+                <i class="fa-solid fa-rotate-left"></i>
+                <span>Limpar / Todos</span>
+            </button>
+
+        </section>
+
+        <main>
+            <div id="pokemon-display-grid" class="pokemon-grid">
+                <div class="loading-screen" id="loading-placeholder">
+                    <div class="pokeball-spinner"></div>
+                    <p>Carregando Pokédex...</p>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
